@@ -23,15 +23,6 @@ class Tech_Tasks
 <?php
     }
 
-    // Save the metabox data
-    function save_custom_metabox_data($post_id)
-    {
-        if (isset($_POST['custom_button_text'])) {
-            $button_text = sanitize_text_field($_POST['custom_button_text']);
-            update_post_meta($post_id, 'custom_button_text', $button_text);
-        }
-    }
-
     function kc_button($content)
     {
         $content .= '  <button class="button">Click me!</button>';
