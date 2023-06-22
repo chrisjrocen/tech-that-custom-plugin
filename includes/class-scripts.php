@@ -25,5 +25,6 @@ class Scripts
     public function enqueue_scripts()
     {
         wp_enqueue_script('jquery');
+        wp_enqueue_script('tech-script', KC_TECH_DIR . '/assets/scripts.js');
     }
 }
