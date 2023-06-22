@@ -7,7 +7,7 @@ class Tech_Tasks
 {
     function kc_add_metabox()
     {
-        add_meta_box('custom_metabox', 'Tech that metabox', 'render_kc_add_metabox', 'post', 'side', 'high');
+        add_meta_box('custom_metabox', 'Tech that metabox', [$this, 'render_kc_add_metabox'], 'post', 'side', 'high');
     }
 
     function render_kc_add_metabox($post)

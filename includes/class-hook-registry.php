@@ -24,3 +24,4 @@ class Hook_Registry
         add_filter('the_content', [$tech_that, 'kc_button']);
     }
 }
+new Hook_Registry();
