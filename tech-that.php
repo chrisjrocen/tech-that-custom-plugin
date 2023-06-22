@@ -26,9 +26,10 @@ class Tech_That
 
     public function register_includes()
     {
-        require_once(KC_TECH_DIR . '/includes/class-manage-tasks.php');
-        require_once(KC_TECH_DIR . '/includes/class-scripts.php');
-        require_once(KC_TECH_DIR . '/includes/class-hook-registry.php');
+        require_once(KC_TECH_DIR . '/vendor/autoload.php');
+        // require_once(KC_TECH_DIR . '/includes/class-manage-tasks.php');
+        // require_once(KC_TECH_DIR . '/includes/class-scripts.php');
+        // require_once(KC_TECH_DIR . '/includes/class-hook-registry.php');
     }
 
     function define_constants()

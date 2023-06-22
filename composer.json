@@ -1,0 +1,16 @@
+{
+    "name": "techthat/kenneth",
+    "description": "Kanzucode learnings",
+    "autoload": {
+        "psr-4": {
+            "Kanzu\\Tech\\": "./includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kenneth Kisakye",
+            "email": "kanyecope@gmail.com"
+        }
+    ],
+    "require": {}
+}
