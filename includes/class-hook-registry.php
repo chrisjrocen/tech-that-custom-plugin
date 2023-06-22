@@ -22,6 +22,8 @@ class Hook_Registry
 
         add_action('save_post', [$tech_that, 'save_custom_metabox_data']);
         add_filter('the_content', [$tech_that, 'kc_button']);
+
+        add_action('wp_ajax_kc_count_btn_clicks', [$tech_that, 'handle_button_clicks']);
     }
 }
 new Hook_Registry();

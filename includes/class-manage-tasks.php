@@ -25,7 +25,11 @@ class Tech_Tasks
 
     function kc_button($content)
     {
-        $content .= '  <button class="button">Click me!</button>';
+        $content .= '  <button class="button" id="tech_btn">Click me!</button>';
         return $content;
+    }
+
+    function handle_button_clicks()
+    {
     }
 }
