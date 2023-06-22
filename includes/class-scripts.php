@@ -19,12 +19,12 @@ class Scripts
 
     public function enqueue_styles()
     {
-        wp_enqueue_style('Main styles file', KC_TECH_URL . 'styles.css', array(), 0.1, 'all');
+        wp_enqueue_style('Main styles file', KC_TECH_URL . '/assets/styles.css', array(), 0.1, 'all');
     }
 
     public function enqueue_scripts()
     {
         wp_enqueue_script('jquery');
-        wp_enqueue_script('tech-script', KC_TECH_DIR . '/assets/scripts.js');
+        wp_enqueue_script('tech-script', KC_TECH_URL . '/assets/scripts.js');
     }
 }
