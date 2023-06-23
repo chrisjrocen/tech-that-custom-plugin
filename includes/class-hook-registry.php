@@ -24,6 +24,7 @@ class Hook_Registry
         add_filter('the_content', [$tech_that, 'kc_button']);
 
         add_action('wp_ajax_kc_count_btn_clicks', [$tech_that, 'handle_button_clicks']);
+        error_log(print_r("-=========", true));
     }
 }
 new Hook_Registry();
