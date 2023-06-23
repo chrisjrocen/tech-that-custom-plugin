@@ -7,7 +7,7 @@ class Tech_Tasks
 {
     function kc_add_metabox()
     {
-        add_meta_box('custom_metabox', 'Tech that metabox', 'render_kc_add_metabox', 'post', 'side', 'high');
+        add_meta_box('custom_metabox', 'Tech that metabox', [$this, 'render_kc_add_metabox'], 'post', 'side', 'high');
     }
 
     function render_kc_add_metabox($post)
@@ -23,18 +23,24 @@ class Tech_Tasks
 <?php
     }
 
-    // Save the metabox data
-    function save_custom_metabox_data($post_id)
-    {
-        if (isset($_POST['custom_button_text'])) {
-            $button_text = sanitize_text_field($_POST['custom_button_text']);
-            update_post_meta($post_id, 'custom_button_text', $button_text);
-        }
-    }
-
     function kc_button($content)
     {
-        $content .= '  <button class="button">Click me!</button>';
+        global $post;
+        $user_id =  get_current_user_id();
+        $user_clicks = get_user_meta($user_id, 'kc_button_click_counts', true);
+        $counts = $user_clicks ? $user_clicks : 0;
+
+        $content .= '  <button class="button" id="tech_btn">Click me!</button>';
+        $content .= '  <label> <span id="display_clicks">' . $counts . ' </span> Click</label>';
         return $content;
+    }
+
+    function handle_button_clicks()
+    {
+        $user_id =  get_current_user_id();
+        if (isset($_POST['current_value'])) {
+            $btn_count = sanitize_text_field($_POST['current_value']);
+            update_user_meta($user_id, 'kc_button_click_counts', $btn_count);
+        }
     }
 }
