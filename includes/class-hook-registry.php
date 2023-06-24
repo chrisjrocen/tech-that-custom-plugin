@@ -18,6 +18,8 @@ class Hook_Registry
         //Enqueue Styles and Scripts
         add_action('wp_enqueue_scripts', [$scripts, 'register_scripts']);
 
+        add_action('admin_enqueue_scripts', [$scripts, 'enqueue_admin_scripts']);
+
         add_action('add_meta_boxes', [$tech_that, 'kc_add_metabox']);
 
         add_action('save_post', [$tech_that, 'save_custom_metabox_data']);

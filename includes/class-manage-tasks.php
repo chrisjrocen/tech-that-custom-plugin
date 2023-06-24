@@ -12,15 +12,29 @@ class Tech_Tasks
 
     function render_kc_add_metabox($post)
     {
+        global $post;
+        $user_id =  get_current_user_id();
+            $user_clicks = get_user_meta($user_id, 'kc_admin_button_click_counts', true);
+            $counts = $user_clicks ? $user_clicks : 0;
         // Retrieve any saved data for the button
         $button_text = get_post_meta($post->ID, 'custom_button_text', true);
 
         // Output the button field
 ?>
         <p>
-            <input type="button" id="custom_button" name="custom_button" class="button" value="Click Me">
+            <input type="button" id="custom_button" name="custom_button" class="admin_button" value="Click Me">
+            <label> <span id="admin_clicks"><?php $counts ?> </span> Click(s)</label>
         </p>
 <?php
+    }
+
+    function handle_admin_button_clicks()
+    {
+        $user_id =  get_current_user_id();
+        if (isset($_POST['current_admin_value'])) {
+            $btn_count = sanitize_text_field($_POST['current_admin_value']);
+            update_user_meta($user_id, 'kc_admin_button_click_counts', $btn_count);
+        }
     }
 
     function kc_button($content)

@@ -16,11 +16,19 @@ class Scripts
         $this->enqueue_styles();
         $this->enqueue_scripts();
         $this->localise_data();
+        $this->enqueue_admin_scripts();
     }
 
     public function enqueue_styles()
     {
         wp_enqueue_style('Main styles file', KC_TECH_URL . '/assets/styles.css', array(), 0.1, 'all');
+    }
+
+    public function enqueue_admin_scripts(){
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('Admin Scripts', KC_TECH_URL . '/assets/dashboard-scripts.js');
+        wp_enqueue_style('Main styles file', KC_TECH_URL . '/assets/styles.css');
+
     }
 
     public function enqueue_scripts()
@@ -31,5 +39,7 @@ class Scripts
     public function localise_data()
     {
         wp_localize_script('tech-script-js', 'kanzuTechThat', ['ajaxUrl' => admin_url('admin-ajax.php')]);
+        wp_localize_script('Admin Scripts', 'kanzuAdminTechThat', ['ajaxUrl' => admin_url('admin-ajax.php')]);
+
     }
 }
